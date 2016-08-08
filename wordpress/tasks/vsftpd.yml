@@ -5,3 +5,10 @@
 
 - name: "criando o arquivo vsftpd.user_list"
   file: path=/etc/vsftpd.user_list state=touch owner=root group=root mode=0644
+
+- name: "restart vsftpd"
+  service: name=vsftpd state=restarted
+
+- name: "habilitando o vsftpd"
+  service: name=vsftpd enabled=yes
+
