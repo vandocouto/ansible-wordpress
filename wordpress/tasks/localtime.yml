@@ -1,0 +1,7 @@
+---
+- name: "ajustando a data locatime Sao_Paulo"
+  file: path=/etc/localtime state=absent
+
+- name: "Criando o link simbolico"
+  command: ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime 
+
