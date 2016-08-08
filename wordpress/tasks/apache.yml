@@ -24,8 +24,15 @@
   file: src=/etc/apache2/sites-available/{{usuario_wordpress}}.conf dest=/etc/apache2/sites-enabled/{{usuario_wordpress}}.conf state=link
   when: virtualhost|success
 
+- name: "ajustando o apache2.conf"
+  template: src=apache2.conf dest=/etc/apache2/apache2.conf owner=www-data group=www-data mode=751 backup=yes
+
+- name: "ajustando a permissão do apache2"
+  file: path=/etc/apache2 owner=www-data group=www-data mode=0751 recurse=yes
+
 - name: "restart apache"
   service: name=apache2 state=restarted
 
 - name: "habilitando o apache2"
   service: name=apache2 enabled=yes
+
