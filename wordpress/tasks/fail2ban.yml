@@ -1,0 +1,12 @@
+---
+- name: "criando o arquivo jail.conf"
+  template: src=jail.conf dest=/etc/fail2ban/jail.conf owner=root mode=644 backup=yes
+
+- name: "restart fail2ban"
+  service: name=fail2ban state=restarted
+
+- name: "habilitando o fail2ban"
+  service: name=fail2ban enabled=yes
+
+
+
