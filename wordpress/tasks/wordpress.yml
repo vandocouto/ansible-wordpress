@@ -1,0 +1,11 @@
+---
+- name: "wget da ultima versao do wordpress"
+  get_url: url=http://wordpress.org/latest.zip dest=/home/{{usuario_wordpress}}/ owner={{usuario_wordpress}} group={{usuario_wordpress}} mode=0775
+
+- name: "unzip da ultima versao do wordpress"
+  unarchive: src=/home/{{usuario_wordpress}}/latest.zip dest=/home/{{usuario_wordpress}}/ owner={{usuario_wordpress}} group={{usuario_wordpress}}
+
+- name: "permissionamento"
+  file: path=/home/{{usuario_wordpress}}/wordpress/ owner={{usuario_wordpress}} group={{usuario_wordpress}} state=directory mode=0775 recurse=yes
+
+

@@ -1,0 +1,7 @@
+---
+- name: "criando o arquivo vsftpd.conf"
+  template: src=vsftdp.conf dest=/etc/vsftpd.conf owner=root mode=644 backup=yes
+  when: aptget|success
+
+- name: "criando o arquivo vsftpd.user_list"
+  file: path=/etc/vsftpd.user_list state=touch owner=root group=root mode=0644

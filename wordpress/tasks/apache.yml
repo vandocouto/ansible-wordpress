@@ -1,0 +1,27 @@
+---
+- name: "apache modulo absent"
+  apache2_module: name={{item}}  state=absent 
+  with_items:
+  - mpm_prefork
+  - mpm_event
+
+- name: "apache modulo present"
+  apache2_module: name={{item}} state=present
+  with_items:
+  - fastcgi
+  - actions
+  - rewrite
+  - deflate
+  - expires
+  - mpm_worker
+
+- name: "apache - virtualhost {{usuario_wordpress}}"
+  template: src=apache_wordpress.conf dest=/etc/apache2/sites-available/{{usuario_wordpress}}.conf owner=root mode=644 backup=yes
+  register: virtualhost 
+  when: aptget|success
+
+- name: "a2ensite {{usuario_wordpress}].conf"
+  file: src=/etc/apache2/sites-available/{{usuario_wordpress}}.conf dest=/etc/apache2/sites-enabled/{{usuario_wordpress}}.conf state=link
+  when: virtualhost|success
+
+

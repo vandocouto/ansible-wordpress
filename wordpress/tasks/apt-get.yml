@@ -1,0 +1,41 @@
+---
+- name: "ajuste source.list"
+  template: src=fastcgi.list dest=/etc/apt/sources.list.d/fastcgi.list owner=root mode=644
+  register: sourcelist
+  
+- name: "apt-get update"
+  apt: update_cache=yes
+
+- name: "apt-get install"
+  apt: name={{item}} state=present
+  with_items:
+   - apache2-mpm-worker
+   - apache2-utils
+   - php5-fpm
+   - php5
+   - php5-curl
+   - php5-gd
+   - php5-imagick
+   - php-apc
+   - php5-mysql
+   - mariadb-server
+   - mariadb-client
+   - mytop
+   - vsftpd
+   - unzip
+   - munin
+   - munin-node
+   - munin-plugins-extra
+   - munin-plugins-core
+   - munin-common
+   - python-pip
+   - python-mysqldb
+   - fail2ban
+   - rcconf
+   - chkconfig
+   - libapache2-mod-fcgid
+   - libapache2-mod-scgi
+   - libapache2-mod-fastcgi
+  register: aptget
+  when: sourcelist|success
+  

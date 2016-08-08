@@ -1,0 +1,13 @@
+---
+- name: "adicioando usuario - {{usuario_wordpress}}"
+  user: name={{usuario_wordpress}} shell=/bin/bash append=yes
+
+- name: "ajustando a senha do usuario {{usuario_wordpress}}"
+  user: name={{usuario_wordpress}} update_password=always password={{password_wordpress}}
+
+- name: "criando o diretorio do wordpress"
+  file: path=/home/{{usuario_wordpress}}/{{item.dir}} state=directory owner={{usuario_wordpress}} group={{usuario_wordpress}} mode=0775
+  with_items:
+   - { dir: 'logs' }
+#  - { dir: 'wordpress' }
+

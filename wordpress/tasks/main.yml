@@ -1,0 +1,10 @@
+---
+# tasks file for wordpress
+- include: adduser.yml
+- include: apt-get.yml
+- include: vsftpd.yml
+- include: mysql.yml
+  failed_when: True
+  ignore_errors: True
+- include: wordpress.yml
+- include: apache.yml
