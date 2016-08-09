@@ -1,15 +1,10 @@
 ---
-- name: "criando o arquivo ~/.my.cnf"
-  template: src=my.cnf dest=~/.my.cnf owner=root mode=644 backup=yes
-  register: mycnf
-
 - name: "removendo o usuario anonymous localhost"
   mysql_user: name='' host=localhost state=absent
-  when: mycnf|success
+  ignore_errors: yes
 
 - name: "update mysql user default host ansible_hostname"
   mysql_user: name='' host={{ansible_hostname}} password={{mysql_password}}
-  when: mycnf|success
 
 - name: "update mysql root password for all root accounts"
   ignore_errors: yes
@@ -19,7 +14,10 @@
    - 127.0.0.1
    - ::1
    - localhost
-  when: mycnf|success
+
+- name: "criando o arquivo ~/.my.cnf"
+  template: src=my.cnf dest=~/.my.cnf owner=root mode=644 backup=yes
+  register: mycnf
 
 - name: "create database"
   mysql_db: name={{database}} state=present

@@ -3,13 +3,14 @@
 ntp_timezone: Sao_Paulo
 # mysql - user root
 mysql_user: root
-mysql_password: abc@123
+mysql_password: 123@abc
 # mysql - user wordpress
-usuario_wordpress: wordpress1
-password_wordpress: 123@abc
+usuario_wordpress: tutoriaisgnulinux
+password_wordpress: abc@123
 # mysql - database wordpress
-database: wordpress1
+database: tutoriaisgnulinux
 # virtualhost - wordpress
-virtualhost: www.wordpress1.com.br
-email: user1@dominio.com.br
-
+virtualhost: tutoriaisgnulinux.com.br
+email: email@dominio.com.br
+# versao do wordpress (buscar a versao correta no site).
+zip: wordpress-4.5.3.zip
