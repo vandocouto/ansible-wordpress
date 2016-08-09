@@ -32,6 +32,7 @@
 
 - name: "restart apache"
   service: name=apache2 state=restarted
+  ignore_errors: yes
 
 - name: "habilitando o apache2"
   service: name=apache2 enabled=yes

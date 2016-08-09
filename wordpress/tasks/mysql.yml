@@ -21,7 +21,9 @@
 
 - name: "create database"
   mysql_db: name={{database}} state=present
+  when: mycnf|success
 
 - name: "criando o usuario do wordpress no mysql"
   mysql_user: user={{usuario_wordpress}} password={{password_wordpress}} priv={{database}}.*:ALL state=present
+  when: mycnf|success
 

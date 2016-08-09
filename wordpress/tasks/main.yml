@@ -7,7 +7,6 @@
   failed_when: True
   ignore_errors: True
 - include: wordpress.yml
-  tags: wordpress
 - include: apache.yml
   tags: apache
 - include: fail2ban.yml
