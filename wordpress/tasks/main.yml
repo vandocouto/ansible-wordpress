@@ -8,6 +8,5 @@
   ignore_errors: True
 - include: wordpress.yml
 - include: apache.yml
-  tags: apache
 - include: fail2ban.yml
 - include: localtime.yml

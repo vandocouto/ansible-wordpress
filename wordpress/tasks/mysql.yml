@@ -5,6 +5,7 @@
 
 - name: "update mysql user default host ansible_hostname"
   mysql_user: name='' host={{ansible_hostname}} password={{mysql_password}}
+  ignore_errors: yes
 
 - name: "update mysql root password for all root accounts"
   ignore_errors: yes
