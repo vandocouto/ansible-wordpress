@@ -18,6 +18,6 @@
 
 ## Rodando o playbook.
 <pre>
-# ansible-playbook -i host site.yml
+# ansible-playbook -i hosts site.yml
 </pre>
 
