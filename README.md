@@ -4,7 +4,7 @@
 - Informações visite o blog:
 - http://tutoriaisgnulinux.com
 
-## Para baixar o repositório, basta instalar o wget e o git.
+## Para baixar o repositório basta instalar o wget e o git.
 <pre>
 # apt-get install git wget -y
 </pre>
