@@ -14,4 +14,10 @@
 # apt-get install ansible -y
 </pre>
 
+* Antes de rodar o playbook configure os arquivos hosts e variaveis de acordo com o seu ambiente.
+
+## Rodando o playbook.
+<pre>
+# ansible-playbook -i host site.yml
+</pre>
 
