@@ -1,12 +1,17 @@
 # Orquestrando a implementação do Wordpress com Ansible.
 
-	- Maiores informações visite: 
-	* http://tutoriaisgnulinux.com
-
+* Esta orquestração foi construída para o Debian 8.
+- Informações visite o blog:
+- http://tutoriaisgnulinux.com
 
 ## Para baixar o repositório, basta instalar o wget e o git.
 <pre>
 # apt-get install git wget -y
+</pre>
+
+## Para rodar o playbook basta instalar o Ansible.
+<pre>
+# apt-get install ansible -y
 </pre>
 
 
